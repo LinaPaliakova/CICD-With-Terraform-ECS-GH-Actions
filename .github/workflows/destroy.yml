@@ -10,11 +10,7 @@ on:
 jobs:
   Destroy_Infrastructure:
     runs-on: ubuntu-latest
-    env:
-      TF_BACKEND_CONFIG: |
-        bucket = "terraformbackendaccess"
-        key    = "terraformbackendaccess.tfstate"
-        region = "us-east-1"
+   
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -31,8 +27,8 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: terraform
+       
 
       - name: Destroy infrastructure
         run: terraform destroy -auto-approve
-        working-directory: terraform
+       
